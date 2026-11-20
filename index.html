@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alexandre Marins | IA &amp; Tráfego Pago</title>
+<meta name="description" content="Ajudo empresas a vender mais com IA + tráfego + CRM. Atendimento automático no WhatsApp, Google e Meta Ads.">
+<meta property="og:title" content="Alexandre Marins | IA & Tráfego Pago">
+<meta property="og:description" content="Chama no WhatsApp e vê a IA te atendendo agora.">
+<meta property="og:image" content="avatar.jpg">
+<meta name="theme-color" content="#141414">
+<link rel="icon" href="avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#141414;--orange:#FF6A1A;--bg:#ECEBE8;--card:#fff;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{min-height:100%}
+  body{
+    font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);
+    background:radial-gradient(120% 80% at 50% 0%,#F7F6F3 0%,var(--bg) 60%,#DEDCD8 100%);
+    min-height:100vh;overflow-x:hidden;position:relative;
+  }
+  .blob{position:fixed;border-radius:50%;filter:blur(70px);opacity:.45;z-index:0;pointer-events:none}
+  .b1{width:320px;height:320px;background:var(--orange);top:-120px;right:-110px;animation:f1 14s ease-in-out infinite alternate}
+  .b2{width:280px;height:280px;background:#FF9A5C;bottom:-100px;left:-120px;animation:f2 16s ease-in-out infinite alternate}
+  @keyframes f1{to{transform:translate(-60px,80px)}}
+  @keyframes f2{to{transform:translate(70px,-60px)}}
+  .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.07;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .rule{position:fixed;top:0;bottom:0;width:10px;z-index:1;opacity:.35;
+    background:repeating-linear-gradient(to bottom,var(--ink) 0 1px,transparent 1px 14px)}
+  .rule.l{left:8px}.rule.r{right:8px}
+
+  main{position:relative;z-index:2;max-width:440px;margin:0 auto;padding:44px 22px 40px;display:flex;flex-direction:column;align-items:center}
+  .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.7;margin-bottom:22px}
+  .tag b{color:var(--orange)}
+  .avatar{width:108px;height:108px;border-radius:50%;object-fit:cover;border:4px solid #fff;
+    box-shadow:0 14px 34px rgba(0,0,0,.18),0 0 0 2px var(--orange)}
+  .name{font-family:Anton,Impact,sans-serif;font-size:58px;line-height:.95;text-transform:uppercase;letter-spacing:.01em;margin-top:22px;text-align:center}
+  .script{font-family:"Great Vibes",cursive;color:var(--orange);font-size:46px;line-height:1;margin-top:-10px;transform:rotate(-4deg);white-space:nowrap}
+  .bio{text-align:center;font-size:15.5px;line-height:1.5;margin-top:14px;max-width:330px;opacity:.85}
+  .bio em{font-family:"Playfair Display",serif;font-style:italic;color:var(--orange);font-size:17px}
+
+  .links{width:100%;display:flex;flex-direction:column;gap:14px;margin-top:30px}
+  .btn{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:var(--card);
+    border-radius:22px;padding:16px 18px;box-shadow:0 10px 26px rgba(0,0,0,.08);
+    transition:transform .2s ease,box-shadow .2s ease}
+  .btn:active{transform:scale(.97)}
+  @media(hover:hover){.btn:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(0,0,0,.13)}}
+  .ic{flex:0 0 44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#F3F2EF}
+  .ic svg{width:24px;height:24px}
+  .tx{flex:1;min-width:0}
+  .tx strong{display:block;font-size:16px;font-weight:600}
+  .tx span{display:block;font-size:13px;opacity:.6;margin-top:2px}
+  .arr{opacity:.35;font-size:20px}
+
+  .btn.hero{background:var(--ink);color:#fff;padding:20px 18px;position:relative;overflow:hidden}
+  .btn.hero::after{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 80% 20%,rgba(255,106,26,.45),transparent 50%);pointer-events:none}
+  .btn.hero .ic{background:var(--orange)}
+  .btn.hero .tx strong{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+  .btn.hero .tx span{opacity:.75}
+  .btn.hero .arr{opacity:.9;color:var(--orange)}
+  .live{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+  .live i{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:p 1.2s infinite}
+  @keyframes p{50%{opacity:.25}}
+
+  footer{margin-top:34px;font-size:12px;opacity:.5;text-align:center}
+  footer .script{font-size:26px;margin:0;opacity:1;display:inline-block}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div>
+<div class="grain"></div><div class="rule l"></div><div class="rule r"></div>
+
+<main>
+  <p class="tag">@alexandrepmarins <b>|</b> IA &amp; Tráfego</p>
+  <img class="avatar" src="avatar.jpg" alt="Alexandre Marins">
+  <h1 class="name">Alexandre Marins</h1>
+  <div class="script">IA &amp; Tráfego</div>
+  <p class="bio">Ajudo empresas a <em>vender mais</em> com IA + tráfego + CRM. Atendimento automático no WhatsApp, Google e Meta Ads.</p>
+
+  <nav class="links">
+    <a class="btn hero" href="https://wa.me/5563993029071?text=Oi%2C%20Alexandre!%20Vim%20pelo%20Instagram%20e%20quero%20ver%20a%20IA%20me%20atendendo." target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm0-21.6A11.8 11.8 0 0 0 1.9 18L.2 24l6.2-1.6A11.8 11.8 0 1 0 12 .2z"/></svg></div>
+      <div class="tx"><div class="live"><i></i>IA online agora</div><strong>Ver a IA me atendendo</strong><span>Chama no WhatsApp e teste na hora</span></div>
+      <div class="arr">→</div>
+    </a>
+
+    <a class="btn" href="https://wa.me/5563993029071?text=Oi%2C%20Alexandre!%20Quero%20colocar%20atendimento%20com%20IA%20no%20WhatsApp%20da%20minha%20empresa." target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01M9 16h6"/></svg></div>
+      <div class="tx"><strong>Atendimento com IA no WhatsApp</strong><span>Responda todo cliente na hora, 24h</span></div>
+      <div class="arr">→</div>
+    </a>
+
+    <a class="btn" href="https://wa.me/5563993029071?text=Oi%2C%20Alexandre!%20Quero%20saber%20sobre%20tr%C3%A1fego%20pago%20(Google%20e%20Meta%20Ads)." target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+      <div class="tx"><strong>Tráfego pago</strong><span>Google Ads e Meta Ads</span></div>
+      <div class="arr">→</div>
+    </a>
+
+    <a class="btn" href="https://wa.me/5563993029071?text=Oi%2C%20Alexandre!%20Quero%20organizar%20meu%20comercial%20com%20CRM%20e%20automa%C3%A7%C3%B5es." target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="11" rx="1.5"/><rect x="17" y="4" width="4" height="7" rx="1.5"/></svg></div>
+      <div class="tx"><strong>CRM e automações</strong><span>Nenhum cliente esquecido no funil</span></div>
+      <div class="arr">→</div>
+    </a>
+
+    <a class="btn" href="https://instagram.com/alexandrepmarins" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#FF6A1A"/></svg></div>
+      <div class="tx"><strong>Instagram</strong><span>@alexandrepmarins</span></div>
+      <div class="arr">→</div>
+    </a>
+  </nav>
+
+  <footer>
+    <span class="script">Alexandre</span><br>
+    © <span id="y"></span> Alexandre Marins · IA &amp; Tráfego Pago
+  </footer>
+</main>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
